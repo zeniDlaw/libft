@@ -6,19 +6,20 @@
 /*   By: ichettri <ichettri@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 14:45:38 by ichettri          #+#    #+#             */
-/*   Updated: 2023/11/20 20:30:01 by ichettri         ###   ########.fr       */
+/*   Updated: 2023/11/24 18:23:20 by ichettri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
+
 // #include <string.h>
 
-static void	nonoverlap(char *st1, const char *st2, int num)
+static void	condition(char *st1, char *st2, int n)
 {
 	int	i;
 
 	i = 0;
-	while (i < num)
+	while (i < n)
 	{
 		st1[i] = st2[i];
 		i++;
@@ -27,26 +28,26 @@ static void	nonoverlap(char *st1, const char *st2, int num)
 
 void	*ft_memmove(void *str1, const void *str2, int n)
 {
-	char		*s1;
-	const char	*s2;
-	int			i;
+	char	*st1;
+	char	*st2;
+	int		i;
 
-	i = n;
-	s1 = str1;
-	s2 = str2;
-	if (*s1 == '\0' && *s2 == '\0')
+	st1 = (char *)str1;
+	st2 = (char *)str2;
+	i = 0;
+	if (st1 == NULL && st2 == NULL)
 		return (NULL);
-	if (s1 > s2 && s1 < s2 + n)
+	if (st1 < st2)
 	{
-		while (i > 0)
-		{
-			s1[i - 1] = s2[i - 1];
-			i--;
-		}
+		condition(st1, st2, n);
 	}
 	else
 	{
-		nonoverlap(s1, s2, n);
+		while (n > 0)
+		{
+			st1[n - 1] = st2[n - 1];
+			n--;
+		}
 	}
 	return (str1);
 }

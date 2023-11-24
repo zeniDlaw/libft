@@ -6,41 +6,40 @@
 /*   By: ichettri <ichettri@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 11:59:54 by ichettri          #+#    #+#             */
-/*   Updated: 2023/11/20 20:22:26 by ichettri         ###   ########.fr       */
+/*   Updated: 2023/11/24 18:48:10 by ichettri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
 #include <stdio.h>
-#include <string.h>
+// #include <string.h>
 
 char	*ft_strrchr(const char *s, int c)
 {
-	int	i;
+	char	*ret;
 
-	if (!s)
-		return (NULL);
-	i = 0;
-	while (s[i])
+	ret = 0;
+	while (*s)
 	{
-		if (s[i] == (char)c)
-			return ((char *)(s + i));
-		i++;
+		if (*s == (unsigned char)c)
+			ret = (char *)s;
+		++s;
 	}
-	if (s[i] == (char)c)
-		return ((char *)(s + i));
-	return (NULL);
+	if (!c)
+		ret = ((char *)s);
+	return (ret);
 }
 
-int	main(void)
-{
-	char	src[] = "Hullocallum";
-	char	s;
-	char	*res;
+// int	main(void)
+// {
+// 	char	src[] = "Hullocallum";
+// 	char	s;
+// 	char	*res;
 
-	s = 'u';
-	res = ft_strrchr(src, s);
-	// res = strchr(src, 'o');
-	printf("%s", res);
-	return (0);
-}
+// 	s = 'u';
+// 	res = ft_strrchr(src, s);
+// 	// res = strchr(src, 'o');
+// 	printf("%s", res);
+// 	return (0);
+// }

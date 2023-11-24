@@ -6,16 +6,18 @@
 /*   By: ichettri <ichettri@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 15:56:08 by ichettri          #+#    #+#             */
-/*   Updated: 2023/11/17 11:23:39 by ichettri         ###   ########.fr       */
+/*   Updated: 2023/11/21 13:58:38 by ichettri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 // #include <stdio.h>
+#include <stdlib.h>
+
 // #include <strings.h>
 
-void	ft_bzero(void *s, int n)
+void	ft_bzero(void *s, size_t n)
 {
-	int		i;
+	size_t	i;
 	char	*p;
 
 	p = s;

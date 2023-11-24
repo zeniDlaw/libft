@@ -6,33 +6,25 @@
 /*   By: ichettri <ichettri@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 13:58:56 by ichettri          #+#    #+#             */
-/*   Updated: 2023/11/20 14:15:23 by ichettri         ###   ########.fr       */
+/*   Updated: 2023/11/24 18:31:43 by ichettri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 // #include <stdio.h>
-// #include <string.h>
+#include "libft.h"
 
 void	*ft_memchr(const void *str, int c, int n)
 {
-	int			i;
-	const char	*s;
+	char	*s;
 
-	s = str;
-	i = 0;
-	while (i < n)
+	s = (char *)str;
+	while (n--)
 	{
-		if (s[i] == c)
-		{
-			s = str + i;
-			break ;
-		}
-		else
-		{
-			i++;
-		}
+		if (*s == (char)c)
+			return (s);
+		s++;
 	}
-	return ((char *)s);
+	return (NULL);
 }
 
 // int	main(void)

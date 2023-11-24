@@ -6,33 +6,26 @@
 /*   By: ichettri <ichettri@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 15:20:30 by ichettri          #+#    #+#             */
-/*   Updated: 2023/11/17 12:21:39 by ichettri         ###   ########.fr       */
+/*   Updated: 2023/11/24 18:29:32 by ichettri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <stdlib.h>
 
 // #include <stdio.h>
 // #include <string.h>
 
-char	*ft_strchr(const char *s, int c)
+char	*ft_strchr(char *s, int c)
 {
-	int			i;
-	const char	*j;
-
-	j = s;
-	i = 0;
-	while (s[i] != '\0')
+	while (*s)
 	{
-		if (s[i] == c)
-		{
-			j = s + i;
-			break ;
-		}
-		else
-		{
-			i++;
-		}
+		if (*s == (char)c)
+			return (s);
+		s++;
 	}
-	return ((char *)j);
+	if (*s == (char)c)
+		return (s);
+	return (NULL);
 }
 
 // int	main(void)

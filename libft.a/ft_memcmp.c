@@ -6,7 +6,7 @@
 /*   By: ichettri <ichettri@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 14:17:35 by ichettri          #+#    #+#             */
-/*   Updated: 2023/11/20 14:57:48 by ichettri         ###   ########.fr       */
+/*   Updated: 2023/11/24 18:30:32 by ichettri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,22 +15,20 @@
 
 int	ft_memcmp(const void *s1, const void *s2, int n)
 {
-	int			i;
-	const char	*src;
-	const char	*src1;
+	int				i;
+	unsigned char	*st1;
+	unsigned char	*st2;
 
+	st1 = (unsigned char *)s1;
+	st2 = (unsigned char *)s2;
 	i = 0;
-	src = s1;
-	src1 = s2;
 	while (i < n)
 	{
-		while (src[i] != '\0' && src1[i] != '\0' && src[i] == src1[i])
-		{
-			i++;
-		}
-		n--;
+		if (st1[i] != st2[i])
+			return (st1[i] - st2[i]);
+		i++;
 	}
-	return (src[i] - src1[i]);
+	return (0);
 }
 
 // int	main(void)

@@ -1,45 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ichettri <ichettri@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/20 20:32:24 by ichettri          #+#    #+#             */
-/*   Updated: 2023/11/21 16:18:00 by ichettri         ###   ########.fr       */
+/*   Created: 2023/11/21 16:31:44 by ichettri          #+#    #+#             */
+/*   Updated: 2023/11/24 18:10:29 by ichettri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 // #include <stdio.h>
 #include <stdlib.h>
+#include "libft.h"
 
-char	*ft_strdup(char *src)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char			*des;
-	unsigned int	len;
+	char	*joined;
+	char	*joined_ptr;
 
-	len = 0;
-	while (src[len] != '\0')
-		len++;
-	des = (char *)malloc(sizeof(*des) * (len + 1));
-	if (des == NULL)
+	if (!s1 || !s2)
 		return (NULL);
-	len = 0;
-	while (src[len] != '\0')
-	{
-		des[len] = src[len];
-		len++;
-	}
-	des[len] = '\0';
-	return (des);
+	joined = malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
+	if (!joined)
+		return (NULL);
+	joined_ptr = joined;
+	while (*s1)
+		*joined_ptr++ = *s1++;
+	while (*s2)
+		*joined_ptr++ = *s2++;
+	*joined_ptr = '\0';
+	return (joined);
 }
 
 // int	main(void)
 // {
-// 	char	source[] = "bdasbdudbaudbdsddsadadadawd";
-// 	char	*target;
+// 	char	a[] = "hello";
+// 	char	b[] = "world";
+// 	char	*dest;
 
-// 	target = ft_strdup(source);
-// 	printf("%s", target);
+// 	dest = ft_strjoin(a, b);
+// 	printf("%s\n", dest);
 // 	return (0);
 // }

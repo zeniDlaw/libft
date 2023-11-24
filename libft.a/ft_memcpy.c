@@ -6,27 +6,25 @@
 /*   By: ichettri <ichettri@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 13:42:27 by ichettri          #+#    #+#             */
-/*   Updated: 2023/11/20 11:32:44 by ichettri         ###   ########.fr       */
+/*   Updated: 2023/11/24 18:17:17 by ichettri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 // #include <stdio.h>
 // #include <string.h>
 
-void	*ft_memcpy(void *dst, const void *src, int n)
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	int			i;
-	char		*d;
-	const char	*s;
+	char	*dest;
+	char	*s;
 
-	i = 0;
-	d = dst;
-	s = src;
-	while (i < n)
-	{
-		d[i] = s[i];
-		i++;
-	}
+	if (!dst && !src)
+		return (NULL);
+	dest = dst;
+	s = (char *)src;
+	while (n--)
+		*dest++ = *s++;
 	return (dst);
 }
 
@@ -35,8 +33,8 @@ void	*ft_memcpy(void *dst, const void *src, int n)
 // 	char	src[10];
 // 	char	dst[50];
 
-// 	ft_memcpy(dst, src, 4);
-// 	// memcpy(dst, src, 4);
-// 	printf("%s\n", dst);
+// 	printf("%s\n", ft_memcpy("abcdefghij", "abcdefgxyz", 7));
+// 	// printf("%s\n", memcpy("abcdefghij", "abcdefgxyz", 7));
+// 	// printf("%s\n", dst);
 // 	return (0);
 // }
