@@ -1,45 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ichettri <ichettri@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/20 11:59:54 by ichettri          #+#    #+#             */
-/*   Updated: 2023/12/02 07:07:25 by ichettri         ###   ########.fr       */
+/*   Created: 2023/12/01 17:05:31 by ichettri          #+#    #+#             */
+/*   Updated: 2023/12/01 18:19:22 by ichettri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
-// #include <stdio.h>
-// #include <string.h>
-
-char	*ft_strrchr(const char *s, int c)
+t_list	*ft_lstlast(t_list *lst)
 {
-	char	*ret;
+	t_list	*node;
 
-	ret = 0;
-	while (*s)
+	if (lst == NULL)
+		return (NULL);
+	node = lst;
+	while (node->next != NULL)
 	{
-		if (*s == (unsigned char)c)
-			ret = (char *)s;
-		++s;
+		node = node->next;
 	}
-	if (!c)
-		ret = ((char *)s);
-	return (ret);
+	return (node);
 }
 
-// int	main(void)
+// int main()
 // {
-// 	char	src[] = "Hullocallum";
-// 	char	s;
-// 	char	*res;
-
-// 	s = 'u';
-// 	res = ft_strrchr(src, s);
-// 	// res = strchr(src, 'o');
-// 	printf("%s", res);
-// 	return (0);
+//     t_list *c;
+//     ft_lstadd_front(&c, ft_lstnew("Hello"));
+//      ft_lstadd_front(&c, ft_lstnew("my"));
+//       ft_lstadd_front(&c, ft_lstnew("baby"));
+//     return(0);
 // }

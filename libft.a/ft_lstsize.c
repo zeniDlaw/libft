@@ -1,45 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ichettri <ichettri@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/20 11:59:54 by ichettri          #+#    #+#             */
-/*   Updated: 2023/12/02 07:07:25 by ichettri         ###   ########.fr       */
+/*   Created: 2023/12/01 15:13:26 by ichettri          #+#    #+#             */
+/*   Updated: 2023/12/01 17:03:30 by ichettri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
 // #include <stdio.h>
-// #include <string.h>
+#include <stdlib.h>
 
-char	*ft_strrchr(const char *s, int c)
+int	ft_lstsize(t_list *lst)
 {
-	char	*ret;
+	t_list	*ptr;
+	int		count;
 
-	ret = 0;
-	while (*s)
+	count = 0;
+	if (lst != NULL)
 	{
-		if (*s == (unsigned char)c)
-			ret = (char *)s;
-		++s;
+		ptr = NULL;
+		ptr = lst;
+		while (ptr != NULL)
+		{
+			count++;
+			ptr = ptr->next;
+		}
 	}
-	if (!c)
-		ret = ((char *)s);
-	return (ret);
+	return (count);
 }
-
-// int	main(void)
-// {
-// 	char	src[] = "Hullocallum";
-// 	char	s;
-// 	char	*res;
-
-// 	s = 'u';
-// 	res = ft_strrchr(src, s);
-// 	// res = strchr(src, 'o');
-// 	printf("%s", res);
-// 	return (0);
-// }

@@ -6,12 +6,12 @@
 /*   By: ichettri <ichettri@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 14:01:38 by ichettri          #+#    #+#             */
-/*   Updated: 2023/11/24 18:59:00 by ichettri         ###   ########.fr       */
+/*   Updated: 2023/11/25 17:03:12 by ichettri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-// #include <stdio.h>
+#include <stdio.h>
 #include <stdlib.h>
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
@@ -39,10 +39,10 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 
 // int	main(void)
 // {
-// 	char	src[] = "HellwhatsoBaby";
+// 	char	src[] = "Hello.bro.whats.up.bro";
 // 	char	*dest;
 
-// 	dest = ft_substr(src, 4, 6);
+// 	dest = ft_substr(src, 6, 3);
 // 	printf("%s\n", dest);
 // 	return (0);
 // }

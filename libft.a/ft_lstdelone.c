@@ -1,45 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ichettri <ichettri@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/20 11:59:54 by ichettri          #+#    #+#             */
-/*   Updated: 2023/12/02 07:07:25 by ichettri         ###   ########.fr       */
+/*   Created: 2023/12/02 04:28:34 by ichettri          #+#    #+#             */
+/*   Updated: 2023/12/02 05:40:14 by ichettri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
-// #include <stdio.h>
-// #include <string.h>
-
-char	*ft_strrchr(const char *s, int c)
+void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
-	char	*ret;
+	t_list	*current;
 
-	ret = 0;
-	while (*s)
+	current = lst;
+	if (lst == NULL || del == NULL)
 	{
-		if (*s == (unsigned char)c)
-			ret = (char *)s;
-		++s;
+		return ;
 	}
-	if (!c)
-		ret = ((char *)s);
-	return (ret);
+	del(current->content);
+	free(current);
+	lst = NULL;
 }
-
-// int	main(void)
-// {
-// 	char	src[] = "Hullocallum";
-// 	char	s;
-// 	char	*res;
-
-// 	s = 'u';
-// 	res = ft_strrchr(src, s);
-// 	// res = strchr(src, 'o');
-// 	printf("%s", res);
-// 	return (0);
-// }

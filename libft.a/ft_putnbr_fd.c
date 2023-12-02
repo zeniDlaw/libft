@@ -1,45 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ichettri <ichettri@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/20 11:59:54 by ichettri          #+#    #+#             */
-/*   Updated: 2023/12/02 07:07:25 by ichettri         ###   ########.fr       */
+/*   Created: 2023/11/29 11:53:07 by ichettri          #+#    #+#             */
+/*   Updated: 2023/11/29 14:02:45 by ichettri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <unistd.h>
 
-// #include <stdio.h>
-// #include <string.h>
-
-char	*ft_strrchr(const char *s, int c)
+void	ft_putnbr_fd(int n, int fd)
 {
-	char	*ret;
+	long	nb;
 
-	ret = 0;
-	while (*s)
+	nb = n;
+	if (nb < 0)
 	{
-		if (*s == (unsigned char)c)
-			ret = (char *)s;
-		++s;
+		write(fd, "-", 1);
+		nb *= -1;
 	}
-	if (!c)
-		ret = ((char *)s);
-	return (ret);
+	if (nb > 9)
+	{
+		ft_putnbr_fd(nb / 10, fd);
+		ft_putchar_fd((nb % 10) + '0', fd);
+	}
+	else
+		ft_putchar_fd(nb + '0', fd);
 }
 
 // int	main(void)
 // {
-// 	char	src[] = "Hullocallum";
-// 	char	s;
-// 	char	*res;
+// 	int	num;
 
-// 	s = 'u';
-// 	res = ft_strrchr(src, s);
-// 	// res = strchr(src, 'o');
-// 	printf("%s", res);
+// 	num = -12345;
+// 	ft_putnbr_fd(-2147483648LL, 1);
 // 	return (0);
 // }

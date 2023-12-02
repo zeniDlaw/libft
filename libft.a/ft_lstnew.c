@@ -1,45 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ichettri <ichettri@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/20 11:59:54 by ichettri          #+#    #+#             */
-/*   Updated: 2023/12/02 07:07:25 by ichettri         ###   ########.fr       */
+/*   Created: 2023/11/29 15:15:23 by ichettri          #+#    #+#             */
+/*   Updated: 2023/12/01 14:41:54 by ichettri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
 // #include <stdio.h>
-// #include <string.h>
+#include <stdlib.h>
 
-char	*ft_strrchr(const char *s, int c)
+// typedef struct s_list
+// {
+// 	void			*content;
+// 	struct s_list	*next;
+// }					t_list;
+
+t_list	*ft_lstnew(void *content)
 {
-	char	*ret;
+	t_list	*node1;
 
-	ret = 0;
-	while (*s)
-	{
-		if (*s == (unsigned char)c)
-			ret = (char *)s;
-		++s;
-	}
-	if (!c)
-		ret = ((char *)s);
-	return (ret);
+	node1 = (t_list *)malloc(sizeof(t_list));
+	if (node1 == NULL)
+		return (NULL);
+	node1->content = content;
+	node1->next = NULL;
+	return (node1);
 }
 
 // int	main(void)
 // {
-// 	char	src[] = "Hullocallum";
-// 	char	s;
-// 	char	*res;
+// 	t_list *node;
 
-// 	s = 'u';
-// 	res = ft_strrchr(src, s);
-// 	// res = strchr(src, 'o');
-// 	printf("%s", res);
+// 	node = ft_lstnew("Hello");
+// 	if (node != NULL)
+// 	{
+// 		printf("Content: %s\n", (char *)node->content);
+// 		free(node);
+// 	}
 // 	return (0);
 // }

@@ -1,45 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ichettri <ichettri@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/20 11:59:54 by ichettri          #+#    #+#             */
-/*   Updated: 2023/12/02 07:07:25 by ichettri         ###   ########.fr       */
+/*   Created: 2023/11/28 15:52:44 by ichettri          #+#    #+#             */
+/*   Updated: 2023/11/29 11:37:57 by ichettri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <unistd.h>
 
-// #include <stdio.h>
-// #include <string.h>
-
-char	*ft_strrchr(const char *s, int c)
+void	ft_putchar_fd(char c, int fd)
 {
-	char	*ret;
-
-	ret = 0;
-	while (*s)
-	{
-		if (*s == (unsigned char)c)
-			ret = (char *)s;
-		++s;
-	}
-	if (!c)
-		ret = ((char *)s);
-	return (ret);
+	write(fd, &c, 1);
 }
 
 // int	main(void)
 // {
-// 	char	src[] = "Hullocallum";
-// 	char	s;
-// 	char	*res;
-
-// 	s = 'u';
-// 	res = ft_strrchr(src, s);
-// 	// res = strchr(src, 'o');
-// 	printf("%s", res);
-// 	return (0);
+// 	ft_putchar_fd('A', 1);
 // }

@@ -1,45 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ichettri <ichettri@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/20 11:59:54 by ichettri          #+#    #+#             */
-/*   Updated: 2023/12/02 07:07:25 by ichettri         ###   ########.fr       */
+/*   Created: 2023/11/29 11:49:36 by ichettri          #+#    #+#             */
+/*   Updated: 2023/11/29 12:20:55 by ichettri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <unistd.h>
 
-// #include <stdio.h>
-// #include <string.h>
-
-char	*ft_strrchr(const char *s, int c)
+void	ft_putendl_fd(char *s, int fd)
 {
-	char	*ret;
-
-	ret = 0;
-	while (*s)
-	{
-		if (*s == (unsigned char)c)
-			ret = (char *)s;
-		++s;
-	}
-	if (!c)
-		ret = ((char *)s);
-	return (ret);
+	ft_putstr_fd(s, fd);
+	ft_putchar_fd('\n', fd);
 }
 
 // int	main(void)
 // {
-// 	char	src[] = "Hullocallum";
-// 	char	s;
-// 	char	*res;
+// 	char	src[] = "Hello mama";
 
-// 	s = 'u';
-// 	res = ft_strrchr(src, s);
-// 	// res = strchr(src, 'o');
-// 	printf("%s", res);
+// 	ft_putendl_fd(src, 1);
 // 	return (0);
 // }

@@ -6,13 +6,13 @@
 /*   By: ichettri <ichettri@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 15:20:30 by ichettri          #+#    #+#             */
-/*   Updated: 2023/11/24 18:29:32 by ichettri         ###   ########.fr       */
+/*   Updated: 2023/12/02 07:06:15 by ichettri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-
+#include "libft.h"
 // #include <stdio.h>
+// #include <stdlib.h>
 // #include <string.h>
 
 char	*ft_strchr(char *s, int c)
@@ -33,10 +33,11 @@ char	*ft_strchr(char *s, int c)
 // 	char	src[] = "Hellocallum";
 // 	char	s;
 // 	char	*res;
-
+// 	char *res1;
 // 	s = 'u';
-// 	res = ft_strchr(src, s);
+// 	res1 = ft_strchr(src, s);
 // 	res = strchr(src, 'o');
-// 	printf("%s", res);
+// 	printf("%s\n", res);
+// 	printf("%s\n", res1);
 // 	return (0);
 // }
