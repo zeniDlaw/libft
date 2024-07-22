@@ -39,11 +39,9 @@ void	*ft_memmove(void *str1, const void *str2, int n)
 {
 	char	*st1;
 	char	*st2;
-	int		i;
 
 	st1 = (char *)str1;
 	st2 = (char *)str2;
-	i = 0;
 	if (st1 == NULL && st2 == NULL)
 		return (NULL);
 	if (st1 < st2)
